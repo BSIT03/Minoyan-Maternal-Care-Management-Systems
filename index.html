@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maternal Care MIS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header and Navigation */
+    header {
+      background-color: #2a5d84;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin: 10px 0;
+    }
+
+    .card h3 {
+      color: #2a5d84;
+      margin-bottom: 10px;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eaeff3;
+      color: #555;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .card img {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Minoyan Maternal Care Management Information System</h1>
+  <nav>
+    <a href="#login">Login</a>
+    <a href="#register">Register</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#records">Records</a>
+    <a href="#report">Reports</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <div class="card" id="login">
+    <h3>Login Form</h3>
+    <img src="image/login.png" alt="Login form">
+    <p>Used to authenticate users based on roles (Midwife as Admin or BHW as User).</p>
+  </div>
+
+  <div class="card" id="register">
+    <h3>Account Registration</h3>
+    <img src="image/userreg.png" alt="User registration form">
+    <p>Allows midwives to register as admins and BHWs as users.</p>
+  </div>
+
+  <div class="card" id="dashboard">
+    <h3>Dashboard</h3>
+    <img src="image/dashborad.png" alt="Dashboard page">
+    <p>Main navigation hub after login with access to all key system features.</p>
+  </div>
+
+  <div class="card" id="records">
+    <h3>Pregnant Client Information</h3>
+    <img src="image/patientlist.png" alt="Patient list">
+    <img src="image/patientinfoadd.png" alt="Add/update info form">
+    <p>Manage and update pregnant client records from the dashboard.</p>
+  </div>
+
+  <div class="card">
+    <h3>Pregnancy Records</h3>
+    <img src="image/preginfo.png" alt="Pregnancy info 1">
+    <img src="image/preginfo2.png" alt="Pregnancy info 2">
+    <img src="image/preginfo3.png" alt="Pregnancy info 3">
+    <p>View client profile, prenatal visits, post-partum assessments, and vaccine records.</p>
+  </div>
+
+  <div class="card">
+    <h3>Prenatal Visits</h3>
+    <img src="image/prenatal.png" alt="Prenatal visit form">
+    <p>Record pregnancy history and regular prenatal checkups during each visit.</p>
+  </div>
+
+  <div class="card">
+    <h3>Post-Partum & Neonatal Care</h3>
+    <img src="image/postpartumlist.png" alt="Postpartum list">
+    <img src="image/pospatum.png" alt="Postpartum form">
+    <img src="image/neonatal.png" alt="Neonatal care form">
+    <p>Capture mother and infant health data during the post-partum period.</p>
+  </div>
+
+  <div class="card" id="report">
+    <h3>Annual Reports</h3>
+    <img src="image/report.png" alt="Annual report">
+    <p>Generate summary data for tracking health center performance and planning.</p>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 Minoyan Health Center | cleemarktautawan@gmail.com
+</footer>
+
+<!-- JavaScript for scroll animations -->
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target); // Animate only once
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+</script>
+
+</body>
+</html>
